@@ -1,0 +1,14 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANT_API_VERSION = "2"
+
+Vagrant.configure(VAGRANT_API_VERSION) do |config|
+  config.vm.box = "ubuntu/trusty64"
+
+  # Don't check for box updates
+  config.vm.box_check_update = false
+
+  # Perform provisioning activities
+  config.vm.provision "shell", path: "setup.sh", privileged: true
+end
